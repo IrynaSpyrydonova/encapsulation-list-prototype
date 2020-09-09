@@ -17,6 +17,7 @@ export const listPrototype = {
   printState: function () {
     console.log(this.state.name);
   },
+  items: [],
   render: function () {
     const buttonEl = document.createElement('button');
     buttonEl.classList.add('list-btn');
@@ -31,8 +32,9 @@ export const listPrototype = {
     } else {
       this.state.open = true;
     }
-    const listBox = document.createElement('div');
-    listBox.classList.add('inputList');
+
+    const form = document.createElement('form');
+    form.addEventListener('submit', this.addTodo.bind(this));
 
     const input = document.createElement('input');
     input.type = "text";
@@ -40,13 +42,44 @@ export const listPrototype = {
     input.id = "list-item";
     input.classList.add('input');
     
+    
     const addBtn = document.createElement('button');
     addBtn.innerHTML = `<i class="fas fa-plus"></i>`;
     addBtn.classList.add('add');
 
-    listBox.appendChild(input);
-    listBox.appendChild(addBtn);
+    form.appendChild(input);
+    form.appendChild(addBtn);
   
-    document.getElementById('newItem').appendChild(listBox);
+    document.querySelector('.inputList').appendChild(form);
+    document.querySelector('.inputList').style.display= "flex";
   },
+
+  addTodo: function (e){
+    e.preventDefault();
+    const text = e.target.children[0].value;
+    const item = {
+      text,
+      done: false
+      };
+  
+    console.log(item);
+    this.items.push(item);
+    console.log(this.items);
+
+    const list = document.getElementById('listItems')
+    this.renderItems(this.items, list)
+    e.target.children[0].value = '';
+  },
+  renderItems: function(items, itemsList ){
+    itemsList.innerHTML = items.map((item, i) => {
+      return `
+        <li>
+          <input type="checkbox" data-index=${i} id="item${i}" ${item.done ? 'checked' : ''}/>
+          <input type="text" value="${item.text}">
+          <button class='minus'><i class="fas fa-minus"></i></button>
+        </li>
+      `;
+    }).join('');
+
+  }
 };

@@ -73,21 +73,22 @@ header h1 span {
 	align-items: center;
 }
 
-.wrapper input {
+.wrapper main input {
 	width: 60%;
 	height: 30px;
 	border-radius: 10px;
-	border: none;
+    border: none;
+    padding-left: 10px;
 }
 
-.wrapper input:focus {
+.wrapper main input:focus {
 	outline: none;
 	box-shadow: 0 0 0 1.5pt #ff1d58;
 }
 
 .list-btn {
 	padding: 10px;
-	margin: 20px;
+	margin: 10px;
 	border-radius: 5px;
 	border: none;
 	background: #ff1d58;
@@ -106,16 +107,33 @@ header h1 span {
     align-items: center;  
 }
 
+form {
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+	margin: 10px;
+	
+}
+
+form input {
+	padding-left: 10px;
+	width: 60%;
+	height: 15px;
+	border-radius: 10px;
+	border: none;
+}
+
 .inputList{
-    display: flex;
+	display: none;
+	flex-direction: column;
     justify-content: center;
 	align-items: center; 
 	width: fit-content;
 	height: auto;
 	padding: 20px;
-	margin: 10px;
+	margin: 5px;
 	background-color: rgba(255, 255, 255, 0.8);
-	border-radius: 5px; 
+	border-radius: 5px;
 }
 
 .inputAdd{
@@ -131,7 +149,7 @@ header h1 span {
     display: flex;
 	justify-content: center;
     align-items: center;  
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 
@@ -139,10 +157,9 @@ header h1 span {
     padding: 0.5rem;
     outline: none;
     border: none;
-    height: 40px;
+    height: 30px;
     width: 100%;
     transition: .5s;
-    font-size: 1.15rem;
     background:rgba(255,29,88, 0.3);
     color: white;
 }
@@ -153,11 +170,11 @@ header h1 span {
 	height: 30px;
 	border-radius: 25px;
 	width: 40px;
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(0, 0, 0, 0.2);
 	color: black;
 	cursor: pointer;
 	transition: .5s;
-	margin: 0.25rem;
+	margin-left: 10px;
 }
 
 .remove {
@@ -194,8 +211,8 @@ header h1 span {
 
 .checkbox {
 	color: white;
-	width: 16px;
-	height: 16px;
+	width: 12px;
+	height: 12px;
 }
 
 .checkbox:focus{
@@ -207,3 +224,46 @@ header h1 span {
 	text-decoration: line-through;
 }
 
+button.minus {
+	outline: none;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 0 5px;
+	margin-left: 10px;
+	border-radius: 20px;
+
+}
+
+#listItems li {
+	outline: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	height: fit-content;
+	font-weight: 100;
+	display: flex;
+}
+
+#listItems li input {
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	font-size: 14px;
+    height: 20px;
+    padding-left: 10px;
+	margin-right: 5px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+#listItems li input[type="checkbox"]{
+    width: fit-content;
+}
+
+#listItems li input:focus {
+	outline: none;
+}
+
+
+#listItems:empty {
+	display: none;
+}
