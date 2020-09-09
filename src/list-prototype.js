@@ -25,7 +25,12 @@ export const listPrototype = {
     buttonEl.addEventListener('click', this.renderInput.bind(this));
     return buttonEl;
   },
-  renderInput: function(e) {
+  renderInput: function() {
+    if(this.state.open === true){
+      return
+    } else {
+      this.state.open = true;
+    }
     const listBox = document.createElement('div');
     listBox.classList.add('inputList');
 
