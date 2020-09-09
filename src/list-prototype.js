@@ -22,6 +22,26 @@ export const listPrototype = {
     buttonEl.classList.add('list-btn');
     buttonEl.innerHTML = this.state.name;
     buttonEl.addEventListener('click', this.printState.bind(this));
+    buttonEl.addEventListener('click', this.renderInput.bind(this));
     return buttonEl;
-  }
+  },
+  renderInput: function(e) {
+    const listBox = document.createElement('div');
+    listBox.classList.add('inputList');
+
+    const input = document.createElement('input');
+    input.type = "text";
+    input.placeholder = "New Todo";
+    input.id = "list-item";
+    input.classList.add('input');
+    
+    const addBtn = document.createElement('button');
+    addBtn.innerHTML = `<i class="fas fa-plus"></i>`;
+    addBtn.classList.add('add');
+
+    listBox.appendChild(input);
+    listBox.appendChild(addBtn);
+  
+    document.getElementById('newItem').appendChild(listBox);
+  },
 };
