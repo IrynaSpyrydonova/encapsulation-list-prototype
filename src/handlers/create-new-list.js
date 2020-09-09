@@ -21,6 +21,7 @@ export const createNewListHandler = (event) => {
   document.getElementById('lists')
     .appendChild(renderedNewList);
 
+  event.target.value = '';
   logger.push({
     action: 'create new list',
     event,
