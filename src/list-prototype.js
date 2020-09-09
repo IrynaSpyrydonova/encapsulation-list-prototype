@@ -19,6 +19,7 @@ export const listPrototype = {
   },
   render: function () {
     const buttonEl = document.createElement('button');
+    buttonEl.classList.add('list-btn');
     buttonEl.innerHTML = this.state.name;
     buttonEl.addEventListener('click', this.printState.bind(this));
     return buttonEl;
