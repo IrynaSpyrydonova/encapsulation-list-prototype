@@ -1,33 +1,35 @@
 'use strict';
 
-import { listPrototype } from '../list-prototype.js';
+import { taskPrototype, listOfTasks } from '../list-prototype.js';
 import { logger } from '../../lib/logger.js';
 
 export const createNewListHandler = (event) => {
 
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode !== 13) {
-    return;
-  }
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode !== 13) {
+        return;
+    }
 
-  const newList = Object.create(listPrototype);
-  newList.state = {
-    name: event.target.value,
-    open: false
-  };
+    const newTask = Object.create(taskPrototype);
 
-  const renderedNewList = newList.render();
+    newTask.items = [];
 
+    newTask.state = {
+        name: event.target.value,
+        open: false
+    };
 
-  document.getElementById('lists')
-    .appendChild(renderedNewList);
+    const renderedNewTask = newTask.render(document.getElementById('listItems'), document.querySelectorAll('.taskForm'));
 
-  event.target.value = '';
-  logger.push({
-    action: 'create new list',
-    event,
-    newList,
-    renderedNewList
-  });
+    document.getElementById('lists')
+        .appendChild(renderedNewTask);
+
+    event.target.value = '';
+    logger.push({
+        action: 'create new list',
+        event,
+        newTask,
+        renderedNewTask
+    });
 
 };
