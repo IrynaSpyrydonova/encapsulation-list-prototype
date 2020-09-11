@@ -132,7 +132,9 @@ export const taskPrototype = {
 			const secondInput = document.createElement('input');
 			secondInput.type = 'text';
 			secondInput.value = element.text;
-			const buttonEl = document.createElement('button');
+      const buttonEl = document.createElement('button');
+      buttonEl.addEventListener('click', this.deleteItem.bind(this));
+
 			buttonEl.classList.add('minus');
 			const iEl = document.createElement('i');
 			iEl.classList.add('fa');
@@ -149,8 +151,11 @@ export const taskPrototype = {
 	isChecked: function (e) {
 		const target = e.target;
     this.items[target.dataset.index].done = !this.items[target.dataset.index].done;
-    if(this.items[target.dataset.index].done){
-      target.checked = true;
-    }
-	},
+  },
+  
+  deleteItem: function (e){
+    const target = e.currentTarget.parentElement.firstChild;
+    this.items.splice(target.dataset.index,1);
+    e.currentTarget.parentElement.remove();
+  }
 };
