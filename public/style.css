@@ -197,25 +197,6 @@ form input {
     margin-bottom: 0.7rem;
 }
 
-.item_input {
-    background: none;
-    outline: none;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    width: auto;
-}
-
-.checkbox {
-    color: white;
-    width: 12px;
-    height: 12px;
-}
-
-.checkbox:focus {
-    outline: none !important;
-    border: none;
-}
 
 .checkbox:checked~.item_input {
     text-decoration: line-through;
@@ -253,6 +234,10 @@ button.minus {
 
 #listItems li input[type="checkbox"] {
     width: fit-content;
+}
+
+#listItems li input[type="checkbox"]:checked +input{
+    text-decoration: line-through;
 }
 
 #listItems li input:focus {

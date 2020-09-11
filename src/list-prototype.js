@@ -133,7 +133,7 @@ export const taskPrototype = {
 			secondInput.type = 'text';
 			secondInput.value = element.text;
 			const buttonEl = document.createElement('button');
-			buttonEl.classList.add('.minus');
+			buttonEl.classList.add('minus');
 			const iEl = document.createElement('i');
 			iEl.classList.add('fa');
 			iEl.classList.add('fa-minus');
@@ -142,12 +142,15 @@ export const taskPrototype = {
 			liEl.appendChild(inputEl);
 			liEl.appendChild(secondInput);
 			liEl.appendChild(buttonEl);
-			itemsList.appendChild(liEl);
+      itemsList.appendChild(liEl);
 		}
 	},
 
 	isChecked: function (e) {
 		const target = e.target;
-		this.items[target.dataset.index].done = !this.items[target.dataset.index].done;
+    this.items[target.dataset.index].done = !this.items[target.dataset.index].done;
+    if(this.items[target.dataset.index].done){
+      target.checked = true;
+    }
 	},
 };
