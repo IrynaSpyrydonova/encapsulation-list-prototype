@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf8" />
+		<title></title>
+
+		<link href="./public/style.css" rel="stylesheet" />
+		<script src="https://kit.fontawesome.com/1f1918c2d9.js" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<header>
+				<h1>
+					Your Personal
+					<span>Task Manager</span>
+				</h1>
+			</header>
+			<div class="wrapper">
+				<h2>Create Your Task List</h2>
+				<main id="user-interface">
+					<input id="list-name-input" />
+					<div id="lists"></div>
+				</main>
+
+				<div id="newItem" class="inputDiv">
+					<div class="inputList">
+						<ul id="listItems"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- load the frontend testing & reviewing dependencies -->
+		<script src="./lib/review-buttons.js" type="module"></script>
+		<script src="./lib/gremlins.js"></script>
+
+		<!-- test the app object -->
+		<script type="module" src="./src/init.js"></script>
+	</body>
+</html>
